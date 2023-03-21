@@ -1,11 +1,11 @@
-import { useState,  useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { DataState } from '../Context/DataProvider';
 import axios from "axios"
 
 const Report = () => {
   let navigate = useNavigate();
-  const { files, user } = DataState()
+  const { files, setFiles, user, setUser } = DataState()
   const [publicFiles, setPublicFiles] = useState([])
   const [people, setPeople] = useState([])
   const [externalFiles, setExternalFiles] = useState([])
@@ -21,7 +21,9 @@ const Report = () => {
     try {
       const { data } = await axios.post('/revokeAccess', { id: user.id })
       console.log(data);
-    navigate("/", { replace: true })
+      setFiles([])
+      setUser({})
+      navigate("/", { replace: true })
     } catch (error) {
       console.log(error);
     }
@@ -47,9 +49,9 @@ const Report = () => {
     <>
       {files ?
         <div>
-          {(publicFiles.length > 0) && <h3>number of PublicFiles: {publicFiles.length}</h3> }
-          { (people.length > 0) && <h3>number of People accessing files: {people.length}</h3> }
-          { (externalFiles.length > 0) && <h3>number of files shared externally: {externalFiles.length}</h3> }
+          {(publicFiles.length > 0) && <h3>number of PublicFiles: {publicFiles.length}</h3>}
+          {(people.length > 0) && <h3>number of People accessing files: {people.length}</h3>}
+          {(externalFiles.length > 0) && <h3>number of files shared externally: {externalFiles.length}</h3>}
 
           <table>
             <thead>
