@@ -1,22 +1,22 @@
 import './App.css';
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import axios from "axios";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from './Components/Home';
 import Report from './Components/Report';
 import { DataState } from './Context/DataProvider';
 function App() {
-  const [code, setCode] = useState(`${window.location.href}`)
+ 
   const {  setFiles, setUser }=DataState()
   let navigate = useNavigate();
 useEffect(() => {
-  if (code.includes("=")) {
-    const key = code.split("=")[1].slice(0, -4)
+  if (window.location.href.includes("=")) {
+    const key = (window.location.href).split("=")[1].slice(0, -4)
     getFiles(key);
 
     navigate("/Report", { replace: true })
   }
-
+// eslint-disable-next-line 
 }, [])
 
 

@@ -16,7 +16,7 @@ const Report = () => {
     else if (size < 10 ** 12) return parseFloat(size / 10 ** 9).toFixed(2) + "GB"
     return size
   }
-  console.log(files);
+
   const revoke = async () => {
     try {
       const { data } = await axios.post('/revokeAccess', { id: user.id })
@@ -42,10 +42,6 @@ const Report = () => {
     setPeople([...new Set(arr)])
   }, [files]);
 
-
-
-
-  console.log(files);
 
   return (
     <>
