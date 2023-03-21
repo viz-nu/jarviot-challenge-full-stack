@@ -89,11 +89,11 @@ on Clicking this button you will not navigate back to landing page but also clea
 
 ### MongoDb
 Before user authentication 
-![]()
+![](https://github.com/viz-nu/jarviot-challenge-full-stack/blob/main/ScreenShots/BeforeAuth.jpeg)
 After user authentication 
-![]()
+![](https://github.com/viz-nu/jarviot-challenge-full-stack/blob/main/ScreenShots/AfterAuth.jpeg)
 After user revoking access
-![]()
+![](https://github.com/viz-nu/jarviot-challenge-full-stack/blob/main/ScreenShots/AfterRevoke.jpeg)
 
 ## Made By
 
